@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_page1"
+        android:title="page 1"
+        app:showAsAction="always"
+        />
+    <group>
+        <item
+            android:id="@+id/menu_page2"
+            android:title="page 2"
+            app:showAsAction="ifRoom"
+            />
+        />
+        <item
+            android:id="@+id/menu_page3"
+            android:title="page 3"
+            app:showAsAction="ifRoom"
+            />
+        <item
+            android:id="@+id/menu_page4"
+            android:title="page 4"
+            app:showAsAction="never"
+            />
+        <item
+            android:id="@+id/menu_page5"
+            android:title="page 5"
+            app:showAsAction="never"
+            />
+    </group>
+</menu>
+
+    <!--
+    item 은 바로 보이는 메뉴 버튼 이고
+    group 으로 묶인 item 들은 점으로 Result 사진 우상단 처럼 하나의 버튼(오버플로우 메뉴) 밑에 서브 메뉴로 묶이게 됩니다.
+    app:showAsAction="always" 항상 툴바의 액션으로 보이게 표시
+    app:showAsAction="ifRoom" 만약 공간이 있다면 액션, 없다면 오버플로우 메뉴에 표시
+    -->

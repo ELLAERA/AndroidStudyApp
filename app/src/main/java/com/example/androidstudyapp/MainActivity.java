@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn_explicit =(Button) findViewById(R.id.btn_Intent1);
         Button btn_implicit =(Button) findViewById(R.id.btn_Intent2);
+        Button btn_toolbar =(Button) findViewById(R.id.btn_toolbar);
 
         btn_explicit.setOnClickListener((e)-> {
             Intent it = new Intent(this, IntentExplicitActivity.class);
@@ -27,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
             Intent it = new Intent("android.intent.action.IMPLICIT");
             it.putExtra("val", "Implicit Intent Test");
             it.addCategory(Intent.CATEGORY_DEFAULT);
+            startActivity(it);
+        });
+
+        btn_toolbar.setOnClickListener((e)-> {
+            Intent it = new Intent(this, ToolbarActivity.class);
             startActivity(it);
         });
     }
