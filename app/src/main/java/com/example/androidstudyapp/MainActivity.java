@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn_implicit =(Button) findViewById(R.id.btn_Intent2);
         Button btn_toolbar =(Button) findViewById(R.id.btn_toolbar);
         Button btn_view_holder =(Button) findViewById(R.id.btn_view_holder);
+        Button btn_mvvm =(Button) findViewById(R.id.btn_mvvm);
 
         btn_explicit.setOnClickListener((e)-> {
             Intent it = new Intent(this, IntentExplicitActivity.class);
@@ -39,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
         btn_view_holder.setOnClickListener((e)-> {
             Intent it = new Intent(this, ViewHolderActivity.class);
+            startActivity(it);
+        });
+
+        btn_mvvm.setOnClickListener((e)-> {
+            Intent it = new Intent(this, MvvmActivity.class);
             startActivity(it);
         });
     }
