@@ -6,46 +6,50 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
+    static final String[] sMenu = {
+            "1. Intent - Explicit",
+            "2. Intent - Implicit",
+            "3. Toolbar",
+            "4. ViewHolder",
+            "5. MVVM",
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn_explicit =(Button) findViewById(R.id.btn_Intent1);
-        Button btn_implicit =(Button) findViewById(R.id.btn_Intent2);
-        Button btn_toolbar =(Button) findViewById(R.id.btn_toolbar);
-        Button btn_view_holder =(Button) findViewById(R.id.btn_view_holder);
-        Button btn_mvvm =(Button) findViewById(R.id.btn_mvvm);
+        ListView lvw = (ListView) findViewById(R.id.lvw1);
+        ArrayAdapter adt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, sMenu);
+        lvw.setAdapter(adt);
 
-        btn_explicit.setOnClickListener((e)-> {
-            Intent it = new Intent(this, IntentExplicitActivity.class);
-            startActivity(it);
-        });
+        lvw.setOnItemClickListener((av, vw, i, l) -> {    // AdapterView, View, position, id
+            lvw.getItemAtPosition(i);
+            System.out.println(String.format("List item %d(%s) is clicked !!!", i, sMenu[i]));
 
-        btn_implicit.setOnClickListener((e)-> {
-            Intent it = new Intent("android.intent.action.IMPLICIT");
-            it.putExtra("val", "Implicit Intent Test");
-            it.addCategory(Intent.CATEGORY_DEFAULT);
-            startActivity(it);
-        });
-
-        btn_toolbar.setOnClickListener((e)-> {
-            Intent it = new Intent(this, ToolbarActivity.class);
-            startActivity(it);
-        });
-
-        btn_view_holder.setOnClickListener((e)-> {
-            Intent it = new Intent(this, ViewHolderActivity.class);
-            startActivity(it);
-        });
-
-        btn_mvvm.setOnClickListener((e)-> {
-            Intent it = new Intent(this, MvvmActivity.class);
-            startActivity(it);
+            if (i == 0) {
+                Intent it = new Intent(this, IntentExplicitActivity.class);
+                startActivity(it);
+            } else if (i == 1) {
+                Intent it = new Intent("android.intent.action.IMPLICIT");
+                it.putExtra("val", "Implicit Intent Test");
+                it.addCategory(Intent.CATEGORY_DEFAULT);
+                startActivity(it);
+            } else if (i == 2) {
+                Intent it = new Intent(this, ToolbarActivity.class);
+                startActivity(it);
+            } else if (i == 3) {
+                Intent it = new Intent(this, ViewHolderActivity.class);
+                startActivity(it);
+            } else if (i == 4) {
+                Intent it = new Intent(this, MvvmActivity.class);
+                startActivity(it);
+            }
         });
     }
 }
