@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             "3. Toolbar",
             "4. ViewHolder",
             "5. MVVM",
+            "6. Bluetooth",
     };
 
     @Override
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             } else if (i == 4) {
                 Intent it = new Intent(this, MvvmActivity.class);
+                startActivity(it);
+            } else if (i == 5) {
+                Intent it = new Intent(this, BluetoothActivity.class);
                 startActivity(it);
             }
         });

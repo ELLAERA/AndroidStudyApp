@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_bluetooth_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:background="@drawable/ic_baseline_bluetooth"
+            android:onClick="bluetoothOn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_bluetooth_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/ic_baseline_bluetooth_disabled"
+            android:onClick="bluetoothOff"
+            app:layout_constraintStart_toEndOf="@+id/btn_bluetooth_on"
+            app:layout_constraintTop_toTopOf="@+id/btn_bluetooth_on" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="300dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_horizontal"
+            android:paddingLeft="30dp"
+            android:text="Bluetooth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_bluetooth_on" />
+
+        <Button
+            android:id="@+id/btn_connect"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/ic_baseline_phonelink_24"
+            android:onClick="listPairedDevices"
+            android:text="디바이스 연결하기"
+            app:layout_constraintStart_toStartOf="@+id/tv_status"
+            app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+        <Button
+            android:id="@+id/btn_send_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="sendData"
+            android:text="전송"
+            app:layout_constraintEnd_toEndOf="@id/btn_connect"
+            app:layout_constraintTop_toBottomOf="@+id/btn_connect" />
+
+        <EditText
+            android:id="@+id/tv_send_data"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-5dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Send Data"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_send_data"
+            app:layout_constraintLeft_toRightOf="@+id/btn_send_data"
+            app:layout_constraintStart_toStartOf="@+id/btn_connect" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_receive_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
