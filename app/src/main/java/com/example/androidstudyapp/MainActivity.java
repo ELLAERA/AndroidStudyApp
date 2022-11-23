@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             "5. MVVM",
             "6. Bluetooth",
             "7. Retrofit",
+            "8. Recycler View",
     };
 
     @Override
@@ -69,7 +70,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (i == 6) {
                 Intent it = new Intent(this, RetrofitActivity.class);
                 startActivity(it);
-            }
+            } else if (i == 7) {
+            Intent it = new Intent(this, RecyclerViewActivity.class);
+            startActivity(it);
+        }
 
         });
 
